@@ -5,60 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>xogo-manager</title>
     <link rel="stylesheet" href="output.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <!--full-->
     <div class="flex flex-col">
         <!--half1-->
-        <div class="flex flex-col md:flex-row w-full md:h-screen md:mt-0 justify-center items-center px-4 md:px-0 overflow-y-auto mt-24 md:w-1/2">
-            <!--logo-->
-            <div class="p-4 ">
-                <img src="xogo-l.png" class=" h-20 w-52">
-            </div>            
-            <!--micro-->
-            <div class="m-6">
-                <button class="border rounded-md">
-                    <img src="micro.png" class="h-6 m-2">
-                </button>
-            </div>
-            <div class="flex h-4 w-full items-center justify-center">
-                <div class="flex flex-col justify-center w-full">
-                    <hr class="w-full h-full">
+        <div class="flex flex-col md:flex-row w-full md:mt-0 justify-center items-center px-4 md:px-0  mt-24 md:w-1/2">
+            <div class="flex flex-col py-5 w-full justify-center items-center">
+                <!--logo-->
+                <div class="p-5 mt-5">
+                    <img src="xogo-l.png" class=" h-20 w-52">
+                </div>            
+                <!--micro-->
+                <div class="m-6">
+                    <button class="border rounded-md">
+                        <img src="micro.png" class="h-6 m-2">
+                    </button>
                 </div>
-                <span class="mx-2 text-[12px]">OR</span>
-                <div class="flex flex-col justify-center w-full">
-                    <hr class="w-full h-full">
+                <div class="flex h-4 w-full items-center justify-center">
+                    <div class="flex flex-col justify-center w-full">
+                        <hr class="w-full h-full">
+                    </div>
+                    <span class="mx-2 text-[12px]">OR</span>
+                    <div class="flex flex-col justify-center w-full">
+                        <hr class="w-full h-full">
+                    </div>
                 </div>
-            </div>
-            
-            <div class="flex w-4/5 justify-center pt-2">
-                <div class="flex flex-col flex-1 w-full justify-start gap-5" >
-                    <div class="flex flex-col">
-                        <p class="font-bold py-2">First Name</p>
-                        <input type="text" placeholder="Enter your first name" class="border border-black rounded py-3 px-4">
-                        <p class="font-bold py-2">Last Name</p>
-                        <input type="text" placeholder="Enter your first name"  class="border border-black rounded py-3 px-4">
-                        <p class="font-bold py-2">Company Name</p>
-                        <input type="text" placeholder="Enter your company name"  class="border border-black rounded py-3 px-4">
-                        <p class="font-bold py-2">Title Name</p>
-                        <input type="text" placeholder="Enter your title"  class="border border-black rounded py-3 px-4">
-                        <p class="font-bold py-2">Email</p>
-                        <input type="email" placeholder="Enter your email"  class="border border-black rounded py-3 px-4">
-                        <p class="font-bold py-2">Password</p>
-                        <input type="password" placeholder="Enter your password"  class="border border-black rounded py-3 px-4">
-                        <p class="font-bold py-2">Password</p>
-                        <input type="password" placeholder="Reenter your password"  class="border border-black rounded py-3 px-4">
-                    </div>
-                    <div class="relative ">                        
-                        <label class="inline-flex items-center cursor-pointer">
-                            <input type="checkbox" value="" class="sr-only peer">
-                            <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                            <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
-                        </label>
-                    </div>
-                    <div class="flex flex-col gap-4 p4">
-                        <a href="#"  class=" bg-xogo text-white text-center rounded py-4 px-2 justify-center text-sm ">Register</a>
-                        <a href="#" class="border border-xogo rounded-md py-2 px-2 text-center text-sm">Sign Into Your Account</a>
+                
+                <div class="flex w-4/5 justify-center pt-2">
+                    <div class="flex flex-col flex-1 w-full justify-start gap-5" >
+                        <div class="flex flex-col">
+                            <p class="font-bold py-2">First Name</p>
+                            <input type="text" placeholder="Enter your first name" class="border border-black rounded py-3 px-4">
+                            <p class="font-bold py-2">Last Name</p>
+                            <input type="text" placeholder="Enter your first name"  class="border border-black rounded py-3 px-4">
+                            <p class="font-bold py-2">Company Name</p>
+                            <input type="text" placeholder="Enter your company name"  class="border border-black rounded py-3 px-4">
+                            <p class="font-bold py-2">Title Name</p>
+                            <input type="text" placeholder="Enter your title"  class="border border-black rounded py-3 px-4">
+                            <p class="font-bold py-2">Email</p>
+                            <input type="email" placeholder="Enter your email"  class="border border-black rounded py-3 px-4">
+                            <p class="font-bold py-2">Password</p>
+                            <input type="password" placeholder="Enter your password"  class="border border-black rounded py-3 px-4">
+                            <p class="font-bold py-2">Password</p>
+                            <input type="password" placeholder="Reenter your password"  class="border border-black rounded py-3 px-4">
+                        </div>
+                        <div class="flex">
+                            <label class="inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="sellerCheckbox" value="" class="sr-only peer">
+                                <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-xogo"></div>
+                                <span class="ms-3 text-sm font-normal text-gray-900 dark:text-gray-300">I am a seller</span>
+                            </label>
+                        </div>
+                        <div id="sellerCode" class="hidden">
+                            <label for="sellerNumber" class="block mb-2 dark:text-gray-300"><p class="font-bold py-2">Reseller Code</p></label>
+                            <input type="text" id="sellerNumber" placeholder="Enter reseller code" class="border border-black rounded p-2 w-full">
+                        </div>
+                        <script type="text/javascript">
+                            $(function () {
+                                $("#sellerCheckbox").click(function () {
+                                    if ($(this).is(":checked")) {
+                                        $("#sellerCode").removeClass("hidden");
+                                    } else {
+                                        $("#sellerCode").addClass("hidden");
+                                    }
+                                });
+                            });
+                        </script>
+                        <div class="flex">                        
+                            <label class="inline-flex items-center cursor-pointer">
+                                <input type="checkbox" value="" class="sr-only peer">
+                                <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-xogo"></div>
+                                <span class="ms-3 text-sm font-normal text-gray-900 dark:text-gray-300">I have read and accept <a href="#" class="no-underline text-xogo">End User License Agreement</a></span>
+                            </label>
+                        </div>
+                        <div class="flex flex-col gap-4 p4">
+                            <a href="#"  class=" bg-xogo text-white text-center rounded py-4 px-2 justify-center text-sm ">Register</a>
+                            <a href="#" class="border border-xogo rounded-md py-2 px-2 text-center text-sm">Sign Into Your Account</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -72,7 +97,6 @@
                     <div class="flex justify-center mt-6">
                         <a href="index.html" class="bg-white text-md w-full rounded-lg py-2 md:py-3 px-6 text-md tracking-wide opacity-100">Sign In</a>
                     </div>
-                </div>
             </div>
         </div>
     </div>
