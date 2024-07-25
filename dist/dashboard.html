@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </nav>
-            <div class="relative md:flex h-full">
+            <div class="relative md:flex">
                 <aside>
                     <div class="fixed top-0 md:w-16 md:h-full h-0 w-0 bg-headline">
                         <nav class="flex flex-col h-screen md:mt-14 md:pb-16 ">
@@ -108,9 +108,10 @@
                         </nav>
                     </div>
                 </aside>
-                <aside class="fixed top-0 left-0 h-full w-3/4 md:w-1/4 bg-headline text-white p-4 transform transition-transform -translate-x-full sidebar-expanded">
-                        <nav class="flex flex-col h-screen md:pb-16 ">
-                            <a href="#" class="hover:bg-slate-400 text-xl text-normal h-16 flex" >
+                
+                <div id="dropdownSide" class="hidden absolute top-16 z-50 m-4 left-0 h-screen w-3/4 md:w-1/4 bg-headline text-white ">
+                        <nav class="flex flex-col md:pb-16 ">
+                            <a href="#" class="hover:bg-slate-400  text-normal h-16 flex" >
                                 <div title="dashboard" class="flex flex-col justify-center pt-2 pb-2 w-16 h-full">
                                     <div class="flex flex-col justify-center items-center h-full">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" stroke-width="1" fill="currentColor" class="w-6 h-6  md:w-8 md:h-8 text-white ">
@@ -122,7 +123,7 @@
                                     <div class="w-full flex justify-center">DASHBOARD</div>
                                 </div>
                             </a>
-                            <a href="#" class="hover:bg-slate-400 text-xl text-normal h-16 flex" >
+                            <a href="#" class="hover:bg-slate-400  text-normal h-16 flex" >
                                 <div title="library" class="flex flex-col justify-center pt-2 pb-2 w-16 h-full">
                                     <div class="flex flex-col justify-center items-center h-full">
                                         <img src="lib.png" class="w-6 h-6  md:w-8 md:h-8">
@@ -132,7 +133,7 @@
                                     <div class="w-full flex justify-center">LIBRARY</div>
                                 </div>
                             </a>
-                            <a href="#" class="hover:bg-slate-400 text-xl text-normal h-16 flex" >
+                            <a href="#" class="hover:bg-slate-400 text-normal h-16 flex" >
                                 <div title="plylists" class="flex flex-col justify-center pt-2 pb-2 w-16 h-full">
                                     <div class="flex flex-col justify-center items-center h-full">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-6 h-6  md:w-8 md:h-8 text-white">
@@ -144,7 +145,7 @@
                                     <div class="w-full flex justify-center">PLAYLISTS</div>
                                 </div>
                             </a>
-                            <a href="#" class="hover:bg-slate-400 text-xl text-normal h-16 flex" >
+                            <a href="#" class="hover:bg-slate-400  text-normal h-16 flex" >
                                 <div title="player" class="flex flex-col justify-center pt-2 pb-2 w-16 h-full">
                                     <div class="flex flex-col justify-center items-center h-full">
                                         <img src="player.png" class="w-6 h-6  md:w-8 md:h-8">
@@ -154,7 +155,7 @@
                                     <div class="w-full flex justify-center">PLAYERS</div>
                                 </div>
                             </a>
-                            <a href="#" class="hover:bg-slate-400 text-xl text-normal h-16 flex" >
+                            <a href="#" class="hover:bg-slate-400 text-normal h-16 flex" >
                                 <div title="planner" class="flex flex-col justify-center pt-2 pb-2 w-16 h-full">
                                     <div class="flex flex-col justify-center items-center h-full">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"  class="w-6 h-6  md:w-8 md:h-8 text-white">
@@ -166,7 +167,7 @@
                                     <div class="w-full flex justify-center">PLANNER</div>
                                 </div>
                             </a>
-                            <a href="#" class="hover:bg-slate-400 text-xl text-normal h-16 flex" >
+                            <a href="#" class="hover:bg-slate-400 text-normal h-16 flex" >
                                 <div title="overlays" class="flex flex-col justify-center pt-2 pb-2 w-16 h-full">
                                     <div class="flex flex-col justify-center items-center h-full">
                                         <img src="overlay.png" class="w-6 h-6  md:w-8 md:h-8">
@@ -176,7 +177,7 @@
                                     <div class="w-full flex justify-center">OVERLAY</div>
                                 </div>
                             </a>
-                            <a href="#" class="hover:bg-slate-400 text-xl text-normal h-16 flex" >
+                            <a href="#" class="hover:bg-slate-400 text-normal h-16 flex" >
                                 <div title="widgets" class="flex flex-col justify-center pt-2 pb-2 w-16 h-full">
                                     <div class="flex flex-col justify-center items-center h-full">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-6 h-6  md:w-8 md:h-8 text-white">
@@ -189,7 +190,7 @@
                                 </div>
                             </a>
                         </nav>
-                    </aside>
+                    </div>
                 </aside>
                 <section class="  md:ml-16 w-full h-full z-40">
                     <div class="bg-xogo h-20 mt-14 flex justify-between">
@@ -298,12 +299,11 @@
     });
     document.addEventListener('click', function(event) {
         // Get the menu and sidebar elements
-        const sidebar = document.querySelector('aside');
+        const side= document.getElementById('dropdownSide');
 
         // Check if the click is outside the menu or the sidebar
-        if (sidebar && !sidebar.contains(event.target) && !event.target.closest('nav button')) {
-                sidebar.classList.remove('translate-x-0');
-                sidebar.classList.add('-translate-x-full');
+        if (side && !add.contains(event.target) && !event.target.closest('#user')) {
+            side.classList.add('hidden');
         }
     });
     
@@ -315,11 +315,9 @@
         var dropdown = document.getElementById('dropdownAdd');
         dropdown.classList.toggle('hidden');
     });
-    document.querySelector('nav button').addEventListener('click', function(event) {
-            const sidebar = document.querySelector('aside');
-            sidebar.classList.toggle('-translate-x-full');
-            sidebar.classList.toggle('translate-x-0');
-            event.stopPropagation(); // Prevent the click from propagating to the document
+    document.getElementById('user').addEventListener('click', function() {
+        var dropdown = document.getElementById('dropdownSide');
+        dropdown.classList.toggle('hidden');
     });
         
 </script>
