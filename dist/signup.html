@@ -6,6 +6,7 @@
     <title>xogo-manager</title>
     <link rel="stylesheet" href="output.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
 <body>
     <!--full-->
@@ -34,32 +35,32 @@
                 </div>
                 
                 <div class="flex w-4/5 justify-center pt-2">
-                    <div class="flex flex-col flex-1 w-full justify-start gap-5" >
+                    <div class="flex flex-col flex-1 w-full justify-start gap-5">
                         <div class="flex flex-col">
                             <p class="font-bold py-2">First Name</p>
-                            <input type="text" placeholder="Enter your first name" class="border border-black rounded py-3 px-4">
+                            <input type="text" id="fname" placeholder="Enter your first name" class="border border-black rounded py-3 px-4">
                             <p class="font-bold py-2">Last Name</p>
-                            <input type="text" placeholder="Enter your first name"  class="border border-black rounded py-3 px-4">
+                            <input type="text" id="lname" placeholder="Enter your last name" class="border border-black rounded py-3 px-4">
                             <p class="font-bold py-2">Company Name</p>
-                            <input type="text" placeholder="Enter your company name"  class="border border-black rounded py-3 px-4">
+                            <input type="text" id="cname" placeholder="Enter your company name" class="border border-black rounded py-3 px-4">
                             <p class="font-bold py-2">Title Name</p>
-                            <input type="text" placeholder="Enter your title"  class="border border-black rounded py-3 px-4">
+                            <input type="text" id="title" placeholder="Enter your title" class="border border-black rounded py-3 px-4">
                             <p class="font-bold py-2">Email</p>
-                            <input type="email" placeholder="Enter your email"  class="border border-black rounded py-3 px-4">
+                            <input type="email" id="email" placeholder="Enter your email" class="border border-black rounded py-3 px-4">
                             <p class="font-bold py-2">Password</p>
-                            <input type="password" placeholder="Enter your password"  class="border border-black rounded py-3 px-4">
-                            <p class="font-bold py-2">Password</p>
-                            <input type="password" placeholder="Reenter your password"  class="border border-black rounded py-3 px-4">
+                            <input type="password" id="pass1" placeholder="Enter your password" class="border border-black rounded py-3 px-4">
+                            <p class="font-bold py-2">Re-enter Password</p>
+                            <input type="password" id="pass2" placeholder="Reenter your password" class="border border-black rounded py-3 px-4">
                         </div>
                         <div class="flex">
                             <label class="inline-flex items-center cursor-pointer">
-                                <input type="checkbox" id="sellerCheckbox" value="" class="sr-only peer">
-                                <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-xogo"></div>
-                                <span class="ms-3 text-sm font-normal text-gray-900 dark:text-gray-300">I am a seller</span>
+                                <input type="checkbox" id="sellerCheckbox" class="sr-only peer">
+                                <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-xogo"></div>
+                                <span class="ms-3 text-sm font-normal text-black">I am a seller</span>
                             </label>
                         </div>
                         <div id="sellerCode" class="hidden">
-                            <label for="sellerNumber" class="block mb-2 dark:text-gray-300"><p class="font-bold py-2">Reseller Code</p></label>
+                            <label for="sellerNumber" class="block mb-2 text-black"><p class="font-bold py-2">Reseller Code</p></label>
                             <input type="text" id="sellerNumber" placeholder="Enter reseller code" class="border border-black rounded p-2 w-full">
                         </div>
                         <script type="text/javascript">
@@ -75,13 +76,13 @@
                         </script>
                         <div class="flex">                        
                             <label class="inline-flex items-center cursor-pointer">
-                                <input type="checkbox" value="" class="sr-only peer">
-                                <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-xogo"></div>
-                                <span class="ms-3 text-sm font-normal text-gray-900 dark:text-gray-300">I have read and accept <a href="#" class="no-underline text-xogo">End User <br>License Agreement</a></span>
+                                <input type="checkbox" id="termsandcon" class="sr-only peer">
+                                <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-xogo"></div>
+                                <span class="ms-3 text-sm font-normal text-black">I have read and accept <a href="#" class="no-underline text-xogo">End User <br>License Agreement</a></span>
                             </label>
                         </div>
                         <div class="flex flex-col gap-4 pt-4">
-                            <a href="#"  class=" bg-xogo text-white text-center rounded py-4 px-2 justify-center text-sm ">Register</a>
+                            <a href="#" id="regButton" class="bg-xogo text-white text-center rounded py-4 px-2 justify-center text-sm">Register</a>
                             <a href="index.html" class="border border-xogo rounded-md py-4 px-2 text-center text-sm">Sign Into Your Account</a>
                         </div>
                     </div>
@@ -89,7 +90,7 @@
             </div>
         </div>
         <!--half2-->
-        <div class="flex-col fixed right-0 justify-center items-center h-full w-1/2 md: object-center bg-[url('banner.png')] bg-no-repeat bg-cover hidden md:block " >
+        <div class="flex-col fixed right-0 justify-center items-center h-full w-1/2 md:object-center bg-[url('banner.png')] bg-no-repeat bg-cover hidden md:block">
             <div class="bg-xogo h-full w-full flex flex-col justify-center items-center p-4 bg-opacity-80">
                 <span class="text-[24px] md:text-[2.5rem] font-[100] text-white text-center opacity-100">You're looking at the 
                     <span class="font-bold">easiest</span> digital signage platform on the planet.</span> 
@@ -101,4 +102,83 @@
         </div>
     </div>
 </body>
-</html> 
+
+<script>
+document.getElementById('regButton').onclick = function(event) {
+    event.preventDefault();
+    
+    // Gather values
+    const fname = document.getElementById('fname').value.trim();
+    const lname = document.getElementById('lname').value.trim();
+    const cname = document.getElementById('cname').value.trim();
+    const title = document.getElementById('title').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const pass1 = document.getElementById('pass1').value.trim();
+    const pass2 = document.getElementById('pass2').value.trim();
+    const sellerCheckbox = document.getElementById('sellerCheckbox').checked;
+    const sellerNumber = sellerCheckbox ? document.getElementById('sellerNumber').value.trim() : "";
+    const termsandcon = document.getElementById('termsandcon').checked;
+
+    // Initialize a list for error messages
+    let errors = [];
+
+    // Validate each field
+    if (!fname) errors.push("First Name is required.");
+    if (!lname) errors.push("Last Name is required.");
+    if (!cname) errors.push("Company Name is required.");
+    if (!title) errors.push("Title Name is required.");
+    if (!email) errors.push("Email is required.");
+    if (!pass1) errors.push("Password is required.");
+    if (pass1 !== pass2) errors.push("Passwords do not match.");
+    if (!termsandcon) errors.push("You must accept the license agreement.");
+    
+    if (sellerCheckbox && !sellerNumber) errors.push("Reseller Code is required if you are a seller.");
+
+    // Show errors if any
+    if (errors.length > 0) {
+        alert(errors.join("\n"));
+        return;
+    }
+
+    function hashPassword(password) {
+            return CryptoJS.MD5(password).toString();
+        }
+
+        const hashedPassword = hashPassword(pass1);
+
+    // If validation passes, you can now proceed with form submission
+    const myHeaders = new Headers();
+    myHeaders.append("x-api-version", "1.0");
+    myHeaders.append("x-manager-key", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI0MDEiLCJDb21wYW55SWQiOiIxMDYyOCIsImV4cCI6MjAzNzk3MTU5OSwiaXNzIjoic3RhZ2luZy54b2dvLmlvIn0.5CQ0tWH3gfGu5BaGWZ2bImmk6zhQRDWwMtCkB__6_4s");
+    myHeaders.append("Content-Type", "application/json");
+
+    const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: JSON.stringify({
+            firstName: fname,
+            lastName: lname,
+            companyName: cname,
+            title: title,
+            email: email,
+            hashedPassword: hashedPassword, // Send the hashed password
+            resellerCode: sellerNumber,
+            isEULAAccepted: termsandcon // Include this field
+        }),
+        redirect: "follow"
+    };
+
+    fetch("https://api2-staging.xogo.io/v2/api/users", requestOptions)
+        .then(response => response.json())
+        .then(result => {console.log(result)
+            window.location.href='index.html';
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred during registration.");
+        });
+};
+
+
+</script>
+</html>
