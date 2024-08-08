@@ -62,56 +62,69 @@
     </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 <script>
-    document.getElementById('loginButton').onclick = function(event) {
-    event.preventDefault();
-    
-    //get input fields
-    const userInput = document.getElementById('userInput').value;
-    const userPass = document.getElementById('userPass').value;
-    
-    //validation
-    if(userInput == '' || userPass =='')
-    {
-        alert('Please fill in all fields');
+    function login(event) {
+        event.preventDefault();
+        
+        // Get input fields
+        const userInput = document.getElementById('userInput').value;
+        const userPass = document.getElementById('userPass').value;
+        
+        // Validation
+        if (userInput === '' || userPass === '') {
+            alert('Please fill in all fields');
+            return;
+        }
+
+        // Convert password to hashed password
+        function hashPassword(password) {
+            return CryptoJS.MD5(password).toString();
+        }
+
+        const hashedPassword = hashPassword(userPass);
+
+        // API
+        const myHeaders = new Headers();
+        myHeaders.append("x-api-version", "1.0");
+        myHeaders.append("Content-Type", "application/json");
+
+        const raw = JSON.stringify({
+            "email": userInput,
+            "hashedPassword": hashedPassword
+        });
+
+        const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow"
+        };
+
+        // API request
+        fetch("https://api2-staging.xogo.io/v2/api/users/login", requestOptions)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Assuming the response is JSON
+            })
+            .then((result) => {
+                console.log('Result:', result);
+                // Handle login success
+                if (result.token) {
+                    // Store the token in local storage or cookie
+                    localStorage.setItem('token', result.token);
+                    // Redirect to the dashboard or another page
+                    window.location.href = 'dashboard.html';
+                } else {
+                    // Show an error message
+                    alert('Login failed: ' + result.message);
+                }
+            })  
+            .catch((error) => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
     }
-
-    //covert pass to hashedpassword
-    function hashPassword(password) {
-        return CryptoJS.MD5(password).toString();
-    }
-
-    const hashedPassword = hashPassword(userPass);
-
-    //api
-    const myHeaders = new Headers();
-    myHeaders.append("x-api-version", "1.0");
-    myHeaders.append("Content-Type", "application/json");
-
-    const raw = JSON.stringify({
-        "email": userInput,
-        "hashedPassword": hashedPassword
-    }); // <--- Add closing ) here
-
-    const requestOptions = {
-        method: "POST",
-        headers: myHeaders,
-        body: raw,
-        redirect: "follow"
-    };
-
-   
-    //apirequest
-    fetch("https://api2-staging.xogo.io/v2/api/users/login", requestOptions)
-    .then((response) => response.json())
-    .then((result) => {
-        console.error(result); // Log the error result to the console
-        window.location.href = "dashboard.html"; // Redirect to dashboard
-        })
-    .catch((error) => {
-        console.error(error); // Log the error to the console
-        alert(`An error occurred: ${error.message}`); // Display the error message
-    });
-}
 </script>
 </html>
