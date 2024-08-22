@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>xogo-manager</title>
     <link rel="stylesheet" href="/public/output.css">
+    
 </head>
 <body>
     <div class="h-screen">
@@ -108,7 +109,7 @@
                         </nav>
                     </div>
                 </aside>
-                <div id="dropdownSide" class="hidden absolute top-0 z-40 m-4 left-0 h-screen w-3/4 md:w-1/4 bg-headline text-white ">
+                <div id="dropdownSide" class="hidden absolute top-0 z-40 left-0 h-full w-3/4 md:w-1/4 bg-headline text-white ">
                         <nav class="flex flex-col md:pb-16 md:mt-14">
                             <a href="#" class="hover:bg-slate-400  text-normal h-16 flex" >
                                 <div title="dashboard" class="flex flex-col justify-center pt-2 pb-2 w-16 h-full">
@@ -191,7 +192,7 @@
                         </nav>
                     </div>
                 </aside>
-                <section class="  md:ml-16 w-full h-full z-30">
+                <section class=" md:ml-16 w-full h-full z-0">
                     <div class="bg-xogo h-20 mt-14 flex justify-between">
                         <div class="text-white font-light text-[25px] items-center flex gap-3 pl-4 justify-items-stretch">
                             XOGO Free Tier
@@ -207,7 +208,7 @@
                             <a href="#">LIBRARY</a>
                             <div class="h-5 w-5 text-sm text-white bg-gray-400 text-center items-center rounded-full">0</div>
                         </div>
-                        <div >
+                        <div>
                             <div id="add" class="justify-center mx-3 mr-4 items-center flex bg-xogo w-32 h-10">
                                 <img src="add.png" class="h-4">
                                 <a href="#" class="font-normal text-sm text-white p-1">Add new</a>
@@ -257,26 +258,42 @@
                             </div>
                         </div>
                     </div>
+                    <div class="w-full flex sm:flex-row flex-col ">
+                        <div id="lib" class="flex md:flex-row flex-col">
+                            <!--assets items-->
+                        </div>
+                    </div>
                     <hr class="w-full h-0.5 bg-gray-200"> 
-                    <div class="w-full h-20 items-center flex">
-                        <div class="text-xogo flex gap-3  pl-3 ">
+                    <div class="w-full h-16 items-center flex">
+                        <div class="text-xogo flex gap-3 pl-3 ">
                             <a href="#">PLAYLISTS</a>
                             <div class="h-5 w-5 text-sm text-white bg-gray-400 text-center items-center rounded-full">0</div>
                         </div>
                     </div>
-                    <hr class="w-full h-0.5 bg-gray-200"> 
-                    <div class="w-full h-20 items-center flex">
-                        <div class="text-xogo flex gap-3  pl-3 ">
-                            <a href="#">PLAYERS</a>
-                            <div class="h-5 w-5 text-sm text-white bg-gray-400 text-center items-center rounded-full">0</div>
+                    <div  class=" w-full flex flex-col">
+                        <div id="playli" class="flex md:flex-row flex-col gap-4">
+                       <!--playlists items-->
                         </div>
                     </div>
-                    <hr class="w-full h-0.5 bg-gray-200">
+                    <hr class="w-full h-0.5 bg-gray-200"> 
+                    <div class="w-full h-20 items-center flex">
+                        <div class="text-xogo flex gap-3 pl-3 ">
+                            <a href="#">PLAYERS</a>
+                            <div class="h-5 w-5 text-sm text-white bg-gray-400 text-center items-center rounded-full">0</div>
+                        </div>                        
+                    </div>
+                    <div  class=" w-full flex flex-col">
+                        <div id="layer" class="flex md:flex-row flex-col gap-4">
+                            <!--playlists items-->
+                        </div>
+                    </div>
+                    <hr class="w-full md:h-0.5 hidden bg-gray-200">
                 </section>
             </div>
         </div>   
     </div>
 </body>
+<script type="module" src="dashboard.js"></script>
 <script>
     document.addEventListener('click', function(event) {
         // Get the menu and sidebar elements
@@ -318,6 +335,47 @@
         var dropdown = document.getElementById('dropdownSide');
         dropdown.classList.toggle('hidden');
     });
+    
+    // Example to get user data using stored token
+    document.addEventListener('DOMContentLoaded', () => {
+    // Retrieve the token from localStorage
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+        console.error('No token found. Please log in.');
+        // Redirect to login page if needed
         
+        return;
+    }
+
+    // Create headers and append the token
+    const myHeaders = new Headers();
+    myHeaders.append("x-api-version", "1.0");
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("x-manager-key",`${token}`);  // Add the token here
+
+    // Set up request options
+    const requestOptions = {
+        method: "GET",
+        headers: myHeaders,
+        redirect: "follow"
+    };
+
+    // Make the fetch request
+    fetch("https://api2-staging.xogo.io/v2/api/home/summary", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+        console.log(result);
+        
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Authorization failed. Please log in again.');
+    });
+
+    
+
+
+})
 </script>
 </html>  
