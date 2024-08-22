@@ -104,81 +104,104 @@
 </body>
 
 <script>
-document.getElementById('regButton').onclick = function(event) {
-    event.preventDefault();
-    
-    // Gather values
-    const fname = document.getElementById('fname').value.trim();
-    const lname = document.getElementById('lname').value.trim();
-    const cname = document.getElementById('cname').value.trim();
-    const title = document.getElementById('title').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const pass1 = document.getElementById('pass1').value.trim();
-    const pass2 = document.getElementById('pass2').value.trim();
-    const sellerCheckbox = document.getElementById('sellerCheckbox').checked;
-    const sellerNumber = sellerCheckbox ? document.getElementById('sellerNumber').value.trim() : "";
-    const termsandcon = document.getElementById('termsandcon').checked;
+    document.getElementById('regButton').onclick = function(event) {
+        event.preventDefault();
+        
+        // Gather values
+        const fname = document.getElementById('fname').value.trim();
+        const lname = document.getElementById('lname').value.trim();
+        const cname = document.getElementById('cname').value.trim();
+        const title = document.getElementById('title').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const pass1 = document.getElementById('pass1').value.trim();
+        const pass2 = document.getElementById('pass2').value.trim();
+        const sellerCheckbox = document.getElementById('sellerCheckbox').checked;
+        const sellerNumber = sellerCheckbox ? document.getElementById('sellerNumber').value.trim() : "";
+        const termsandcon = document.getElementById('termsandcon').checked;
 
-    // Initialize a list for error messages
-    let errors = [];
-
-    // Validate each field
-    if (!fname) errors.push("First Name is required.");
-    if (!lname) errors.push("Last Name is required.");
-    if (!cname) errors.push("Company Name is required.");
-    if (!title) errors.push("Title Name is required.");
-    if (!email) errors.push("Email is required.");
-    if (!pass1) errors.push("Password is required.");
-    if (pass1 !== pass2) errors.push("Passwords do not match.");
-    if (!termsandcon) errors.push("You must accept the license agreement.");
-    
-    if (sellerCheckbox && !sellerNumber) errors.push("Reseller Code is required if you are a seller.");
-
-    // Show errors if any
-    if (errors.length > 0) {
-        alert(errors.join("\n"));
-        return;
-    }
-
-    function hashPassword(password) {
+        // Validate each field and show an alert immediately if an issue is found
+        if (fname === '') {
+            alert("First Name is required.");
+            return;
+        }
+        if (lname === '') {
+            alert("Last Name is required.");
+            return;
+        }
+        if (cname === '') {
+            alert("Company Name is required.");
+            return;
+        }
+        if (title === '') {
+            alert("Title is required.");
+            return;
+        }
+        if (email === '') {
+            alert("Email is required.");
+            return;
+        }
+        if (pass1 === '') {
+            alert("Password is required.");
+            return;
+        }
+        if (pass1 !== pass2) {
+            alert("Passwords do not match.");
+            return;
+        }
+        if (!termsandcon) {
+            alert("You must accept the license agreement.");
+            return;
+        }
+        if (sellerCheckbox && sellerNumber === '') {
+            alert("Reseller Code is required if you are a seller.");
+            return;
+        }
+        // Proceed with form submission if all validations pass
+        function hashPassword(password) {
             return CryptoJS.MD5(password).toString();
         }
 
         const hashedPassword = hashPassword(pass1);
 
-    // If validation passes, you can now proceed with form submission
-    const myHeaders = new Headers();
-    myHeaders.append("x-api-version", "1.0");
-    myHeaders.append("x-manager-key", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI0MDEiLCJDb21wYW55SWQiOiIxMDYyOCIsImV4cCI6MjAzNzk3MTU5OSwiaXNzIjoic3RhZ2luZy54b2dvLmlvIn0.5CQ0tWH3gfGu5BaGWZ2bImmk6zhQRDWwMtCkB__6_4s");
-    myHeaders.append("Content-Type", "application/json");
+        // If validation passes, you can now proceed with form submission
+        const myHeaders = new Headers();
+        myHeaders.append("x-api-version", "1.0");
+        myHeaders.append("Content-Type", "application/json");
 
-    const requestOptions = {
-        method: "POST",
-        headers: myHeaders,
-        body: JSON.stringify({
-            firstName: fname,
-            lastName: lname,
-            companyName: cname,
-            title: title,
-            email: email,
-            hashedPassword: hashedPassword, // Send the hashed password
-            resellerCode: sellerNumber,
-            isEULAAccepted: termsandcon // Include this field
-        }),
-        redirect: "follow"
-    };
+        const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: JSON.stringify({
+                firstName: fname,
+                lastName: lname,
+                companyName: cname,
+                title: title,
+                email: email,
+                hashedPassword: hashedPassword, // Send the hashed password
+                resellerCode: sellerNumber,
+                isEULAAccepted: termsandcon // Include this field
+            }),
+            redirect: "follow"
+        };
 
-    fetch("https://api2-staging.xogo.io/v2/api/users", requestOptions)
+        fetch("https://api2-staging.xogo.io/v2/api/users", requestOptions)
         .then(response => response.json())
-        .then(result => {console.log(result)
-            window.location.href='index.html';
+        .then(result => {
+            console.log(result);
+             if (email == result.user.email)
+             {
+                alert("Email already exist");
+             }
+            else
+            {
+                
+            }
         })
         .catch(error => {
             console.error("Error:", error);
             alert("An error occurred during registration.");
         });
-};
 
-
+    };
 </script>
 </html>

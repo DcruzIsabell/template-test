@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,7 +61,7 @@
     </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script type="module" src="api.js"></script>
 <script>
     function login(event) {
         event.preventDefault();
@@ -105,21 +104,17 @@
         fetch("https://api2-staging.xogo.io/v2/api/users/login", requestOptions)
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    alert(`Couldn't login... Please double check your email and password...`);
+                    throw new Error('Network response was not ok');                    
                 }
                 return response.json(); // Assuming the response is JSON
             })
             .then((result) => {
                 console.log('Result:', result);
-                // Handle login success
-                if (result.token) {
-                    // Store the token in local storage or cookie
+                if(result.token)
+                {
                     localStorage.setItem('token', result.token);
-                    // Redirect to the dashboard or another page
-                    window.location.href = 'dashboard.html';
-                } else {
-                    // Show an error message
-                    alert('Login failed: ' + result.message);
+                    window.location.href='dashboard.html';
                 }
             })  
             .catch((error) => {
