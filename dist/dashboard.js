@@ -34,12 +34,12 @@ function displayContent() {
         const mostRecentAsset = assets[0]; // Assuming the first item is the most recent
         const capitalizedTitle = capitalizeFirstLetter(mostRecentAsset.name);
 
-        rows = `<div class="w-full sm:w-80 h-auto flex flex-col p-5 justify-center items-center">
-                    <div class="w-full sm:w-72 h-auto flex flex-row">
-                        <img src="${mostRecentAsset.url}" class="w-full h-56 md:h-40 object-cover">
+        rows = `<div class='flex flex-col'>
+                    <div class='flex flex-row'>
+                        <img src='${mostRecentAsset.url}' class='w-full h-52 object-cover'>
                     </div>
-                    <div class="bg-white w-full sm:w-72 flex flex-row justify-between p-2">
-                        <p class="text-xs sm:text-sm font-light truncate">${capitalizedTitle}</p>
+                    <div class='flex flex-row justify-between pt-5 pb-5'>
+                        <p class='text-sm font-light truncate'>${capitalizedTitle}</p>
                         <img src="delete-bin-line.png" class="h-4 w-4 cursor-pointer">
                     </div>
                 </div>`;
@@ -48,15 +48,15 @@ function displayContent() {
         assets.forEach(libraryItem => {
             const capitalizedTitle = capitalizeFirstLetter(libraryItem.name);
         
-            rows += `<div class="w-full h-56 flex flex-col p-5 justify-between items-center bg-white">
-                <div class="w-full h-48 flex flex-row">
-                    <img src="${libraryItem.url}" class="h-48 w-full">
-                </div>
-                <div class="bg-white w-full sm:w-72 flex flex-row justify-between p-2">
-                    <p class="text-xs sm:text-sm font-light truncate">${capitalizedTitle}</p>
-                    <img src="delete-bin-line.png" class="h-4 w-4 cursor-pointer">
-                </div>
-            </div>`;
+            rows += `<div class='h-auto w-auto flex flex-col'>
+                        <div class='flex flex-row'>
+                            <img src='${libraryItem.url}' class='w-96 h-52 object-cover'>
+                        </div>
+                        <div class='flex flex-row justify-between pt-5 pb-5'>
+                            <p class='text-sm font-light truncate'>${capitalizedTitle}</p>
+                            <img src="delete-bin-line.png" class="h-4 w-4 cursor-pointer">
+                        </div>
+                    </div>`;
         });
         
     }
