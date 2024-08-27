@@ -74,24 +74,22 @@ function displayContent() {
         const thumbnailUrls = mostRecentPlaylist.thumbnailUrls;
 
         thumbnailUrls.forEach((url) => {
-            ply += `<div class="border flex flex-col md:w-full w-80 h-40 relative">
-                        <div class="w-full h-full">
-                            <div class="flex flex-col justify-center h-full w-full">
-                                <img loading="lazy" src="${url}" class="w-80 h-40">
-                            </div> 
-                        </div>    
+            ply += `<div class="border w-80 h-52 relative">
+                        <div class="flex flex-col justify-center h-full w-full">
+                                <img loading="lazy" src="${url}" class="object-cover w-full h-52">
+                            </div>    
                     </div>`;
         });
 
-        allPlaylistsContent = `
-        <div class="w-full md:w-80 h-44 p-5">
-            <div class="flex flex-row ">
-            ${ply}
-            </div>
-            <div class="bg-white w-full sm:w-72 flex flex-row justify-between p-2">
-                <p class="text-xs sm:text-sm font-light truncate">${capitalizedTitle}</p>
-            </div>
-        </div>`;
+        allPlaylistsContent = `<div class='flex flex-col p-4'>
+                                    <div class='flex flex-row'>
+                                        ${ply}
+                                    </div>
+                                    <div class='flex flex-row justify-between pt-5 pb-5'>
+                                        <p class='text-sm font-light truncate'>${capitalizedTitle}</p>
+                                        <img src="delete-bin-line.png" class="h-4 w-4 cursor-pointer">
+                                    </div>
+                                </div>`;
     } else {
         // Display all playlists
         playlists.forEach((playlist) => {
@@ -100,17 +98,15 @@ function displayContent() {
             const thumbnailUrls = playlist.thumbnailUrls;
 
             thumbnailUrls.forEach((url) => {
-                ply += `<div class="border flex flex-col md:w-full w-80 h-40 relative">
-                            <div class="w-full h-full">
-                                <div class="flex flex-col justify-center h-full w-full">
-                                    <img loading="lazy" src="${url}" class="object-cover w-80 h-40">
-                                </div> 
-                            </div>    
+                ply += `<div class="border w-80 h-52 relative>
+                            <div class='flex flex-row'>
+                                <img src='${libraryItem.url}' class='w-96 h-52 object-cover'>
+                            </div>   
                         </div>`;
             });
 
             allPlaylistsContent += `
-            <div class=" md:w-80 w-full h-full md:h-44 p-5">
+            <div class=" md:w-80 w-full h-full md:h-44 p-4">
                 <div class="flex flex-row ">
                 ${ply}
                 </div>
@@ -140,8 +136,8 @@ function displayContent() {
     } else {
         // Display all players
         players.forEach(player => {
-            lay += `<div class="md:w-80 w-full md:pl-5 pl-5 pr-5 flex flex-col gap-4">
-                        <div class="bg-gray-200 md:w-80 w-full md:h-56 h-56 flex flex-col justify-center items-center">
+            lay += `<div class="md:w-80  pl-5 pr-5 flex flex-col gap-4">
+                        <div class="bg-gray-200 md:w-80 md:h-48 flex flex-col justify-center items-center">
                             <img src="lap.svg" class="w-36 h-32">
                         </div>
                         <div class="flex flex-row w-full md:w-80 justify-between p-3">

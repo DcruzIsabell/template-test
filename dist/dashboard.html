@@ -48,10 +48,10 @@
             <div class="relative md:flex">
                 <aside>
                     <div class="fixed top-0 md:w-16 md:h-full h-0 w-0 bg-headline">
-                        <nav class="flex flex-col h-screen md:mt-14 md:pb-16 ">
+                        <nav class="flex flex-col h-screen md:mt-14 md:pb-16 sm:hidden ">
                             <a href="#" class="hover:bg-slate-400 text-xl text-normal h-16 flex" >
                                 <div title="dashboard" class="flex flex-col justify-center pt-2 pb-2 w-16 h-full">
-                                    <div class="flex flex-col justify-center items-center h-full">
+                                    <div class="flex flex-col justify-center items-center sm:hidden h-full">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" stroke-width="1" fill="currentColor" class="w-6 h-6  md:w-8 md:h-8 text-white ">
                                             <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z" clip-rule="evenodd" />
                                         </svg>
@@ -109,7 +109,7 @@
                         </nav>
                     </div>
                 </aside>
-                <div id="dropdownSide" class="hidden absolute top-0 z-40 left-0 h-full w-3/4 md:w-1/4 bg-headline text-white ">
+                <div id="dropdownSide" class="hidden absolute top-0 z-40 left-0 h-screen w-3/4 md:w-1/4 bg-headline text-white ">
                         <nav class="flex flex-col md:pb-16 md:mt-14">
                             <a href="#" class="hover:bg-slate-400  text-normal h-16 flex" >
                                 <div title="dashboard" class="flex flex-col justify-center pt-2 pb-2 w-16 h-full">
@@ -192,7 +192,7 @@
                         </nav>
                     </div>
                 </aside>
-                <section class=" md:ml-16 w-full h-full z-0">
+                <section class=" md:ml-16 w-auto h-auto z-0">
                     <div class="bg-xogo h-20 mt-14 flex justify-between">
                         <div class="text-white font-light text-[25px] items-center flex gap-3 pl-4 justify-items-stretch">
                             XOGO Free Tier
@@ -259,7 +259,7 @@
                         </div>
                     </div>
                     <div class="w-full flex sm:flex-row flex-col ">
-                        <div id="lib" class="flex md:flex-row flex-col">
+                        <div id="lib" class="flex md:flex-row flex-col gap-3 pl-3 right-0 mr-4 ">
                             <!--assets items-->
                         </div>
                     </div>
@@ -271,23 +271,23 @@
                         </div>
                     </div>
                     <div  class=" w-full flex flex-col">
-                        <div id="playli" class="flex md:flex-row flex-col gap-4">
+                        <div id="playli" class="flex md:flex-row flex-col gap-3 pl-3 right-0 mr-4 ">
                        <!--playlists items-->
                         </div>
                     </div>
                     <hr class="w-full h-0.5 bg-gray-200"> 
-                    <div class="w-full h-20 items-center flex">
+                    <div class="w-full h-16 items-center flex">
                         <div class="text-xogo flex gap-3 pl-3 ">
                             <a href="#">PLAYERS</a>
                             <div class="h-5 w-5 text-sm text-white bg-gray-400 text-center items-center rounded-full">0</div>
                         </div>                        
                     </div>
                     <div  class=" w-full flex flex-col">
-                        <div id="layer" class="flex md:flex-row flex-col gap-4">
+                        <div id="layer" class="flex md:flex-row flex-col gap-3 pl-3 right-0 mr-4 ">
                             <!--playlists items-->
                         </div>
                     </div>
-                    <hr class="w-full md:h-0.5 hidden bg-gray-200">
+                    <hr class="w-full md:h-0.5 bg-gray-200">
                 </section>
             </div>
         </div>   
