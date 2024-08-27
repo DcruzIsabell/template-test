@@ -34,7 +34,7 @@ function displayContent() {
         const mostRecentAsset = assets[0]; // Assuming the first item is the most recent
         const capitalizedTitle = capitalizeFirstLetter(mostRecentAsset.name);
 
-        rows = `<div class='flex flex-col'>
+        rows = `<div class='flex flex-col p-4'>
                     <div class='flex flex-row'>
                         <img src='${mostRecentAsset.url}' class='w-full h-52 object-cover'>
                     </div>
