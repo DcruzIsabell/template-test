@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xogo-manager</title>
+    <link rel="stylesheet" href="./assets/css/output.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <!--full-->
+    <div class="flex flex-col">
+        <!--half1-->
+        <div class="flex flex-col left-0 h-screen md:h-full w-full md:w-1/2 absolute justify-center items-center md:top-0">
+            <!--logo-->
+            <div class="justify-center items-center mt-14">
+                <img loading="lazy" src="./assets/images/xogo-l.png" class="p-4 h-20 md:h-28">
+            </div>
+            <!--micro-->
+            <div class="m-6">
+                <button class="border rounded-md">
+                    <img src="./assets/images/micro.png" class="h-6 m-2">
+                </button>
+            </div>
+            <div class="flex h-4 w-full items-center justify-center">
+                <div class="flex flex-col justify-center w-full">
+                    <hr class="w-full h-full">
+                </div>
+                <span class="mx-2 text-[12px]">OR</span>
+                <div class="flex flex-col justify-center w-full">
+                    <hr class="w-full h-full">
+                </div>
+            </div>
+
+            <div class="flex w-4/5 justify-center pt-5">
+                <form  class="flex flex-col flex-1 w-full justify-start gap-4" onsubmit="return login(event)">
+                    <input id="userInput" type="email" placeholder="Enter your mail"
+                        class="border border-black rounded w-full py-3 px-4" required>
+                    <input id="userPass" type="password" placeholder="Enter your password"
+                        class="border border-black rounded py-3 px-4" required>
+                    <button type="submit" id="loginButton" class="bg-xogo text-white text-center rounded py-4 px-2 md:py-3 focus:outline-none justify-center text-sm">Login</button>
+                    <a href="#" class="text-center text-xogo text-sm">Forgot Password?</a>
+                    <hr class="w-full">
+                    <a href="signup.html" class="border border-xogo rounded-md py-4 px-2 text-center text-sm">Create an Account</a>
+                </form>
+            </div>
+            <div class="bg-xogo text-white text-center rounded py-4 px-2 justify-center text-sm w-4/5 mt-4">
+                <a href="https://www.xogo.io/getting-started" class="bg-xogo text-white text-center rounded py-4 px-2 justify-center text-sm w-5/6">Quick Start Guide</a>
+            </div>
+        </div>
+        <div class="flex-col fixed right-0 justify-center items-center h-full w-1/2 md:object-center bg-[url('./assets/images/banner.png')] bg-no-repeat bg-cover hidden md:block">
+            <div class="bg-xogo h-full w-full flex flex-col justify-center items-center p-4 bg-opacity-80">
+                <span class="text-[24px] md:text-[2.5rem] font-[100] text-white text-center opacity-100">You're looking at the <span class="font-bold">easiest</span> digital signage platform on the planet.</span>
+                <span class="text-[24px] md:text-[2.5rem] font-[100] text-white text-center opacity-100">Sets up in 3 quick steps!</span>
+                <div class="flex justify-center mt-6">
+                    <a href="signup.html" class="bg-white text-md w-full rounded-lg py-2 md:py-3 px-6 text-md tracking-wide opacity-100">Sign Up For Free</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script type="module" src="./assets/scripts/api.js"></script>
+<script>
+    function login(event) {
+        event.preventDefault();
+        
+        // Get input fields
+        const userInput = document.getElementById('userInput').value;
+        const userPass = document.getElementById('userPass').value;
+        
+        // Validation
+        if (userInput === '' || userPass === '') {
+            alert('Please fill in all fields');
+            return;
+        }
+
+        // Convert password to hashed password
+        function hashPassword(password) {
+            return CryptoJS.MD5(password).toString();
+        }
+
+        const hashedPassword = hashPassword(userPass);
+
+        // API
+        const myHeaders = new Headers();
+        myHeaders.append("x-api-version", "1.0");
+        myHeaders.append("Content-Type", "application/json");
+
+        const raw = JSON.stringify({
+            "email": userInput,
+            "hashedPassword": hashedPassword
+        });
+
+        const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow"
+        };
+
+        // API request
+        fetch("https://api2-staging.xogo.io/v2/api/users/login", requestOptions)
+            .then((response) => {
+                if (!response.ok) {
+                    alert(`Couldn't login... Please double check your email and password...`);
+                    throw new Error('Network response was not ok');                    
+                }
+                return response.json(); // Assuming the response is JSON
+            })
+            .then((result) => {
+                console.log('Result:', result);
+                if(result.token)
+                {
+                    localStorage.setItem('token', result.token);
+                    window.location.href='dashboard.html';
+                }
+            })  
+            .catch((error) => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    }
+</script>
+</html>
