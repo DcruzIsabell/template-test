@@ -104,9 +104,9 @@
                         </nav>
                     </div>
                 </aside>
-                <div id="dropdownSide" class="hidden absolute top-0 z-40 left-0 h-full w-3/4 md:w-1/4 bg-headline text-white ">
+                <div id="dropdownSide" class="hidden absolute top-0 z-40 left-0 h-screen w-3/4 md:w-1/4 bg-headline text-white ">
                         <nav class="flex flex-col md:pb-16 md:mt-14">
-                            <a href="#" class="hover:bg-slate-400  text-normal h-16 flex" >
+                            <a href="dashboard.html" class="hover:bg-slate-400  text-normal h-16 flex" >
                                 <div title="dashboard" class="flex flex-col justify-center pt-2 pb-2 w-16 h-full">
                                     <div class="flex flex-col justify-center items-center h-full">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" stroke-width="1" fill="currentColor" class="w-6 h-6  md:w-8 md:h-8 text-white ">
@@ -118,7 +118,7 @@
                                     <div class="w-full flex justify-center">DASHBOARD</div>
                                 </div>
                             </a>
-                            <a href="library.html" class="hover:bg-slate-400  text-normal h-16 flex" >
+                            <a href="#" class="hover:bg-slate-400  text-normal h-16 flex" >
                                 <div title="library" class="flex flex-col justify-center pt-2 pb-2 w-16 h-full">
                                     <div class="flex flex-col justify-center items-center h-full">
                                         <img src="./assets/images/lib.png" class="w-6 h-6  md:w-8 md:h-8">
@@ -187,7 +187,7 @@
                         </nav>
                     </div>
                 </aside>
-                <section class=" md:ml-16 w-full h-full z-0">
+                <div class=" md:ml-16 w-full h-full z-0">
                     <div class="bg-xogo h-20 mt-14 flex justify-between">
                         <div class="text-white font-light text-[25px] items-center flex gap-3 pl-4 justify-items-stretch">
                             XOGO Free Tier
@@ -198,97 +198,203 @@
                             <a href="#" class="text-[12px] text-xogo p-1">Upgrade to Pro</a>
                         </div>
                     </div>
-                    <div class="w-full h-16 items-center flex justify-between">
-                        <div class="text-xogo flex gap-3  pl-3">
-                            <a href="#">LIBRARY</a>
-                            <div class="h-5 w-5 text-sm text-white bg-gray-400 text-center items-center rounded-full">0</div>
-                        </div>
-                        <div>
-                            <div id="add" class="justify-center mx-3 mr-4 items-center flex bg-xogo w-32 h-10">
-                                <img src="./assets/images/add.png" class="h-4">
-                                <a href="#" class="font-normal text-sm text-white p-1">Add new</a>
-                            </div>
-                            <div id="dropdownAdd" class="hidden absolute md:top-48 top-[136px] right-0 mr-5 w-56 z-20 bg-white border drop-shadow-sm border-gray-200" >
-    
-                                <div href="#" class="block px-4 py-3 text-lg text-black hover:bg-gray-100">
-                                    ADD NEW
+                    <div class="flex  flex-initial lg:flex-row flex-col p-3">
+                        <div class="flex w-full">
+                            <div class="flex flex-1 flex-row mr-2 gap-8  items-center justify-between">
+                                <div class="flex gap-3">
+                                    <a href="#" class="text-2xl font-light">LIBRARY</a>
                                 </div>
-                                <hr class="w-full h-[1px] bg-gray-200">
-                                <a href="#" class="flex justify-start font-normal px-4 py-3 items-center hover:bg-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-8 mr-3 text-xogo">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                                    </svg>
-                                    <span>Image</span>
-                                </a>
-                                <a href="#" class="flex justify-start font-normal px-4 py-3 items-center hover:bg-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-8 mr-3 text-xogo">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
-                                      </svg>
-    
-                                    <span>Video</span>
-                                </a>
-                                <a href="#" class="flex justify-start font-normal px-4 py-3 items-center hover:bg-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-8 mr-3 text-xogo">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
-                                      </svg>                                  
-                                    <span>Url</span>
-                                </a>
-                                <a href="#" class="flex justify-start font-normal px-4 py-3 items-center hover:bg-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-8 mr-3 text-xogo">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 0 0 4.5 9.75v7.5a2.25 2.25 0 0 0 2.25 2.25h7.5a2.25 2.25 0 0 0 2.25-2.25v-7.5a2.25 2.25 0 0 0-2.25-2.25h-.75m0-3-3-3m0 0-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 0 1 2.25 2.25v7.5a2.25 2.25 0 0 1-2.25 2.25h-7.5a2.25 2.25 0 0 1-2.25-2.25v-.75" />
-                                      </svg>                                  
-                                    <span>Bulk Upload</span></a>
-                                    <hr class="w-full h-[1px] bg-gray-200">
-                                <a href="#" class="flex justify-start font-normal px-4 py-3 items-center hover:bg-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-8 mr-3 text-xogo">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z" />
-                                      </svg>                                  
-                                    <span>Playlist</span>
-                                </a>
-                                    <hr class="w-full h-[1px] bg-gray-200">
-                                <a href="#" class="flex justify-start font-normal px-4 py-3 items-center hover:bg-gray-100">
-                                    <img src="./assets/images/addplayer.png" class="h-8 mr-3">
-                                    <span>Player</span>
-                                </a>
                             </div>
+                            
+                            <div class="flex flex-1 flex-row mr-2 gap-0 md:gap-8 items-center justify-between">
+                                <!-- View By Button-->
+                                <div id="viewBy" class="flex md:gap-3 gap-1 md:pl-3 pl-0 relative z-20">
+                                    <button class="font-light md:text-base text-sm">View By</button>
+                                    <img src="./assets/images/equalizer.png" class="h-4 w-4 mt-1">
+                                </div>
+                                <div id="view" class="hidden absolute md:top-48 top-[136px] w-56 z-20 lg:right-1/3 md:right-40 right-0 mr-3 md:mr-3 lg:mr-20 bg-white border drop-shadow-sm border-gray-200">
+                                    <div class="block px-4 py-3 text-sm text-black hover:bg-gray-100">
+                                        View By
+                                    </div>
+                                    <hr class="w-full h-0 bg-gray-200">
+                                    <a href="#" class="flex justify-between text-sm font-thin px-4 py-3 items-center hover:bg-gray-100" onclick="selectOption(this)">
+                                        Date - Ascending
+                                        <span class="selected hidden">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                    <a href="#" class="flex justify-between text-sm font-thin px-4 py-3 items-center hover:bg-gray-100" onclick="selectOption(this)">
+                                        Date - Descending
+                                        <span class="selected hidden">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                    <a href="#" class="flex justify-between text-sm font-thin px-4 py-3 items-center hover:bg-gray-100" onclick="selectOption(this)">
+                                        Name - Ascending
+                                        <span class="selected hidden">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                    <a href="#" class="flex justify-between text-sm font-thin px-4 py-3 items-center hover:bg-gray-100" onclick="selectOption(this)">
+                                        Name - Descending
+                                        <span class="selected hidden">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </div>
+                                <!-- Tags Button-->
+                                <div id="tag" class="flex md:gap-3 gap-1 md:pl-3 pl-0 relative z-20">
+                                    <button class="font-light md:text-base text-sm">Tags</button>
+                                    <img src="./assets/images/equalizer.png" class="h-4 w-4 mt-1">
+                                </div>  
+                                <div id="tags" class="hidden absolute md:top-48 top-[136px] md:right-10 right-0 lg:right-56 mr-3 md:mr-3 lg:mr-5 w-56 h-28 z-20 bg-white border drop-shadow-sm border-gray-200" >
+        
+                                    <div class="flex flex-row justify-between">
+                                        <div class="block px-4 py-3 text-sm text-black hover:bg-gray-100">
+                                            Filters
+                                        </div>
+                                        <div class="block px-4 py-3 text-sm text-xogo hover:bg-gray-100">
+                                            Clear Filters
+                                        </div>
+                                    </div>
+                                    <hr class="w-full h-[1px] bg-gray-200">
+                                    <div>
+                                        <!--tags from fetch-->
+                                    </div>
+                                </div>
+                                <!-- Search Button -->
+                                <div id="searchButton" class="relative z-50">
+                                    <button id="search">
+                                        <img src="./assets/images/search-line.png" class="mt-2 h-4 w-4">
+                                    </button>
+                                </div>
+                                <!-- Search Bar-->
+                                <div id="searchbar" class="hidden w-full border relative z-50">
+                                    <div class="bg-white shadow-sm flex flex-row justify-between">
+                                        <!-- Search Input -->
+                                        <input type="text" class="w-full pl-5 shadow-md border-none focus:outline-none focus:ring-0" placeholder="Enter a name and click search">
+                                        <!-- Results Text -->
+                                        <div class="bg-white w-32 text-gray-400 pl-16 pt-2 text-sm font-light">results</div>
+                                        <!-- Search & Close Buttons -->
+                                        <div class="flex">
+                                            <div class="bg-xogo w-14 h-10 right-0 flex justify-center items-center">
+                                                <button id="look">
+                                                    <img src="./assets/images/search-line-white.png" class="h-6 w-6 mx-3 my-2">
+                                                </button>
+                                            </div>
+                                            <div class="bg-gray-400 w-14 h-10 right-0 flex justify-center items-center">
+                                                <button id="close">
+                                                    <img src="./assets/images/close.png" class="h-8 w-8 mx-3 my-1">
+                                                </button>                                        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items-center justify-center" >
+                            <div class="flex gap-4 mt-2">
+                                <div id="add" class="justify-center items-center flex bg-xogo w-full md:w-32 h-10">
+                                    <img src="./assets/images/add.png" class="h-4">
+                                    <a href="#" class="font-normal text-sm text-white p-1">Add new</a>
+                                </div>
+                                <div id="dropdownAdd" class="hidden absolute lg:top-52 md:top-56 top-44 lg:mr-3 right-0 mr-3 md:right-1/2 md:mr-28 lg:right-0 ml-3 md:mt-2 w-56 z-20 bg-white border drop-shadow-sm border-gray-200" >
+        
+                                    <div class="block px-4 py-3 text-lg text-black hover:bg-gray-100">
+                                        ADD NEW
+                                    </div>
+                                    <hr class="w-full h-[1px] bg-gray-200">
+                                    <a href="#" class="flex justify-start font-normal px-4 py-3 items-center hover:bg-gray-100">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-8 mr-3 text-xogo">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                                        </svg>
+                                        <span>Image</span>
+                                    </a>
+                                    <a href="#" class="flex justify-start font-normal px-4 py-3 items-center hover:bg-gray-100">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-8 mr-3 text-xogo">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+                                        </svg>
+        
+                                        <span>Video</span>
+                                    </a>
+                                    <a href="#" class="flex justify-start font-normal px-4 py-3 items-center hover:bg-gray-100">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-8 mr-3 text-xogo">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                                        </svg>                                  
+                                        <span>Url</span>
+                                    </a>
+                                    <a href="#" class="flex justify-start font-normal px-4 py-3 items-center hover:bg-gray-100">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-8 mr-3 text-xogo">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 0 0 4.5 9.75v7.5a2.25 2.25 0 0 0 2.25 2.25h7.5a2.25 2.25 0 0 0 2.25-2.25v-7.5a2.25 2.25 0 0 0-2.25-2.25h-.75m0-3-3-3m0 0-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 0 1 2.25 2.25v7.5a2.25 2.25 0 0 1-2.25 2.25h-7.5a2.25 2.25 0 0 1-2.25-2.25v-.75" />
+                                        </svg>                                  
+                                        <span>Bulk Upload</span></a>
+                                        <hr class="w-full h-[1px] bg-gray-200">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-row gap-4 text-xs py-3">
+                        <button class="text-black pl-3" id="all">All</button>
+                        <button id="imgs">Images</button>
+                        <button id="vido">Videos</button>
+                        <button id="web">URLs</button>
+                        <button id="wids">Widgets</button>
+                        
+                    </div>
+                    <div class="ml-3 mr-3">
+                        <hr class="w-full h-0 bg-gray-200 ">
+                    </div>
+                    
+
+                    <div class="w-full flex sm:flex-row flex-col ">
+                        <div id="alllib" class="flex md:flex-row flex-col gap-3 right-0 ">
+                            <!--all assets items-->
                         </div>
                     </div>
                     <div class="w-full flex sm:flex-row flex-col ">
-                        <div id="lib" class="flex md:flex-row flex-col gap-3 pl-3 right-0 mr-4 ">
-                            <!--assets items-->
+                        <div id="images" class="flex md:flex-row flex-col gap-3 right-0  ">
+                            <!--images-->
                         </div>
                     </div>
-                    <hr class="w-full h-0.5 bg-gray-200"> 
-                    <div class="w-full h-16 items-center flex">
-                        <div class="text-xogo flex gap-3 pl-3 ">
-                            <a href="#">PLAYLISTS</a>
-                            <div class="h-5 w-5 text-sm text-white bg-gray-400 text-center items-center rounded-full">0</div>
+                    <div class="w-full flex sm:flex-row flex-col ">
+                        <div id="videos" class="flex md:flex-row flex-col gap-3 right-0  ">
+                            <!--videos-->
                         </div>
                     </div>
-                    <div  class=" w-full flex flex-col">
-                        <div id="playli" class="flex md:flex-row flex-col gap-3 pl-3 right-0 mr-4 ">
-                       <!--playlists items-->
+                    <div class="w-full flex sm:flex-row flex-col ">
+                        <div id="links" class="flex md:flex-row flex-col gap-3 right-0  ">
+                            <!--urls-->
                         </div>
                     </div>
-                    <hr class="w-full h-0.5 bg-gray-200"> 
-                    <div class="w-full h-16 items-center flex">
-                        <div class="text-xogo flex gap-3 pl-3 ">
-                            <a href="#">PLAYERS</a>
-                            <div class="h-5 w-5 text-sm text-white bg-gray-400 text-center items-center rounded-full">0</div>
-                        </div>                        
-                    </div>
-                    <div  class=" w-full flex flex-col">
-                        <div id="layer" class="flex md:flex-row flex-col gap-3 pl-3 right-0 mr-4 ">
-                            <!--playlists items-->
+                    <div class="w-full flex sm:flex-row flex-col ">
+                        <div id="widgets" class="flex md:flex-row flex-col gap-3 right-0 ">
+                            <!--widgets-->
                         </div>
                     </div>
-                    <hr class="w-full md:h-0.5 bg-gray-200">
+                    
+                    <div class="gap-4 flex flex-row font-light text-xs my-3 py-3">                        
+                        <div class="pl-3"><a href="#">Previous</a></div>
+                        <div>1/1</div>
+                        <div><a href="#">Next</a></div>
+                    </div>
+                    <div class="text-white">
+                        hello                 
+                    </div>
                 </section>
             </div>
         </div>   
     </div>
 </body>
-<script type="module" src="./assets/scripts/dashboard.js"></script>
+<script type="module" src="./assets/scripts/library.js"></script>
 <script>
     document.addEventListener('click', function(event) {
         // Get the menu and sidebar elements
@@ -299,6 +405,7 @@
             menu.classList.add('hidden');
         }
     });
+    
     document.addEventListener('click', function(event) {
         // Get the menu and sidebar elements
         const add= document.getElementById('dropdownAdd');
@@ -330,7 +437,77 @@
         var dropdown = document.getElementById('dropdownSide');
         dropdown.classList.toggle('hidden');
     });
-    
+    //view by
+     // Toggle the dropdown menu
+     document.getElementById('viewBy').addEventListener('click', function() {
+        var dropdown = document.getElementById('view');
+        dropdown.classList.toggle('hidden');
+    });
+
+    // Close the dropdown if clicked outside
+    document.addEventListener('click', function(event) {
+        const viewBy = document.getElementById('view');
+        if (viewBy && !viewBy.contains(event.target) && !event.target.closest('#viewBy')) {
+            viewBy.classList.add('hidden');
+        }
+    });
+
+    // Function to handle selection and showing the tick mark
+    function selectOption(element) {
+        // Remove the tick mark from all options
+        document.querySelectorAll('.selected').forEach(function(el) {
+            el.classList.add('hidden');
+        });
+
+        // Add the tick mark to the selected option
+        element.querySelector('.selected').classList.remove('hidden');
+
+        // Hide the dropdown menu after selection
+        document.getElementById('view').classList.add('hidden');
+    }
+    //tags
+    // Toggle the dropdown menu
+    document.getElementById('tag').addEventListener('click', function() {
+        var dropdown = document.getElementById('tags');
+        dropdown.classList.toggle('hidden');
+    });
+
+    // Close the dropdown if clicked outside
+    document.addEventListener('click', function(event) {
+        const tag = document.getElementById('tags');
+        if (tag && !tag.contains(event.target) && !event.target.closest('#tag')) {
+            tag.classList.add('hidden');
+        }
+    });
+    //search bar
+    document.getElementById('search').addEventListener('click', function() {
+        // Toggle the search bar visibility
+        var searchbar = document.getElementById('searchbar');
+        searchbar.classList.toggle('hidden');
+
+        // Hide the tag, viewBy, and search button when search bar is displayed
+        var tag = document.getElementById('tag');
+        var viewBy = document.getElementById('viewBy');
+        var searchButton = document.getElementById('searchButton');
+        tag.classList.add('hidden');
+        viewBy.classList.add('hidden');
+        searchButton.classList.add('hidden');
+    });
+
+    document.getElementById('close').addEventListener('click', function() {
+        // Hide the search bar when close button is clicked
+        var searchbar = document.getElementById('searchbar');
+        searchbar.classList.add('hidden');
+
+        // Show the tag, viewBy, and search button when search bar is closed
+        var tag = document.getElementById('tag');
+        var viewBy = document.getElementById('viewBy');
+        var searchButton = document.getElementById('searchButton');
+        tag.classList.remove('hidden');
+        viewBy.classList.remove('hidden');
+        searchButton.classList.remove('hidden');
+    });
+
     // Example to get user data using stored token
     document.addEventListener('DOMContentLoaded', () => {
     // Retrieve the token from localStorage
@@ -349,6 +526,8 @@
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("x-manager-key",`${token}`);  // Add the token here
 
+    const raw = "";
+
     // Set up request options
     const requestOptions = {
         method: "GET",
@@ -356,17 +535,10 @@
         redirect: "follow"
     };
 
-    // Make the fetch request
-    fetch("https://api2-staging.xogo.io/v2/api/home/summary", requestOptions)
-    .then(response => response.json())
-    .then(result => {
-        console.log(result);
-        
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Authorization failed. Please log in again.');
-    });
+    fetch("https://api2-staging.xogo.io/v2/api/LibraryItems?skip=0", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
 
 })
 </script>
