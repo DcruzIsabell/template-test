@@ -2,45 +2,95 @@ import { XogoApi } from "./api.js";
 
 const api = new XogoApi();
 
-// Function to display the library items
 function libraryItems(containerId, assets) {
-    console.log(assets);
     let container = document.getElementById(containerId);
-    container.innerHTML = ''; // Clear the container
+    container.innerHTML = ''; // Clear the container before rendering new items
 
-    let rows = '<div class="flex md:flex-wrap md:flex-row flex-col  pl-3 gap-3 mr-3">'; // Flex container for items
+    // Update the count div
+    let countDiv = document.getElementById('count');
+    countDiv.innerHTML = assets.length; // Display total number of assets
 
-    assets.forEach(data => {
-        const capitalizedTitle = capitalizeFirstLetter(data.name);
-        let imageUrl;
-        if (data.libraryItemType === 'Video' || 
-            data.libraryItemType === 'WidgetTimer' || 
-            data.libraryItemType === 'WidgetClock' || 
-            data.libraryItemType === 'WidgetNote') {
-            // Use thumbnailUrl for Video, WidgetTimer, WidgetClock, and WidgetNote
-            imageUrl = data.thumbnailUrl;
-        } else {
-            // Use the regular URL for other types
-            imageUrl = data.url;
+    let rows = ''; // To hold the structure for the assets
+
+    // Loop through the assets and create rows with up to 4 items per row
+    for (let i = 0; i < assets.length; i += 4) {
+        rows += `<div class="flex md:flex-row flex-col w-full gap-3 px-3 py-2">`; // New row
+
+        // Loop for the next 4 items
+        for (let j = i; j < i + 4 && j < assets.length; j++) {
+            const data = assets[j];
+            const capitalizedTitle = capitalizeFirstLetter(data.name);
+
+            if (data.libraryItemType.toLowerCase().includes('widget')) {
+                // Widget layout
+                let widgetImage = '';
+                switch (data.libraryItemType) {
+                    case 'WidgetClock':
+                        widgetImage = './assets/images/clock.png';
+                        break;
+                    case 'WidgetTimer':
+                        widgetImage = './assets/images/timer.png';
+                        break;
+                    case 'WidgetNote':
+                        widgetImage = './assets/images/note.png';
+                        break;
+                    case 'WidgetWeather':
+                        widgetImage = './assets/images/weather.png';
+                        break;
+                    default:
+                        widgetImage = './assets/images/default-widget.png';
+                }
+
+                rows += `<div class='flex flex-col lg:w-1/4 w-full lg:h-72 h-full'>
+                            <div class='flex flex-col bg-headline items-center justify-center lg:h-full w-full'>
+                                <img src="${widgetImage}" class='h-12 w-12'>
+                                <p class='text-white text-xs'>WIDGETS</p>
+                            </div>
+                            <div class='flex flex-row justify-between pt-3'>
+                                <p class='text-sm font-light truncate'>${capitalizedTitle}</p>
+                                <img src="./assets/images/delete-bin-line.png" class="h-4 w-4 cursor-pointer">
+                            </div>
+                        </div>`;
+            } else {
+                // Normal item layout
+                const imageUrl = data.libraryItemType === 'Video' ? data.thumbnailUrl : data.url;
+
+                rows += `<div class="flex flex-col lg:w-1/4 w-full ">
+                            <div class="flex-1 bg-blue-100">
+                                <img src="${imageUrl}" class='h-full w-full object-cover'>
+                            </div>
+                            <div class='flex flex-row justify-between pt-3'>
+                                <p class='text-sm font-light truncate'>${capitalizedTitle}</p>
+                                <img src="./assets/images/delete-bin-line.png" class="h-4 w-4 cursor-pointer">
+                            </div>                        
+                        </div>`;
+            }
         }
 
+        rows += `</div>`; // Close the current row
+    }
 
-        rows += `<div class='lg:w-80 w-full lg:h-48 md:h-96 h-52 my-4'>
-                    <div class='flex flex-col h-full'>
-                        <div class='flex flex-col md:flex-row w-full h-full '>
-                            <img src="${imageUrl}" class='lg:w-80 md:w-full w-full lg:h-48 md:h-96 h-48 object-cover'>
-                        </div>
-                        <div class='flex flex-row justify-between py-3 lg:pb-10'>
-                            <p class='text-sm font-light truncate'>${capitalizedTitle}</p>
-                            <img src="./assets/images/delete-bin-line.png" class="h-4 w-4 cursor-pointer">
-                        </div>
-                    </div>
-                </div>`;
-    });
-
-    rows += '</div>'; // Close the flex-wrap container
-    container.innerHTML = rows; // Insert rows into the selected container
+    container.innerHTML += rows; // Insert rows into the selected container
 }
+
+// Example: Call this function when the page is loaded with the fetched assets
+function initializeLibrary(assets) {
+    libraryItems('containerId', assets); // Load all assets
+}
+
+// Example of how to fetch assets and initialize the display
+api
+    .get("/LibraryItems?skip=0")
+    .then(response => {
+        return response.json();
+    })
+    .then(result => {
+        const assets = result.data; // Get the data array
+        libraryItems('alllib', assets); // Display all assets
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 
 // Function to handle tab selection
 function handleTabSelection(tab, assets) {
@@ -70,12 +120,10 @@ function handleTabSelection(tab, assets) {
         document.getElementById('links').style.display = 'flex'; // Show URLs section
         libraryItems('links', filteredAssets); // Render URLs into #links
     } else if (tab === 'Widget') {
-        // Filter assets where 'Widget' is anywhere in the libraryItemType string
         filteredAssets = assets.filter(item => item.libraryItemType.includes('Widget'));
         document.getElementById('widgets').style.display = 'flex'; // Show widgets section
         libraryItems('widgets', filteredAssets); // Render widgets into #widgets
     }
-    
 }
 
 // Helper function to capitalize the first letter
