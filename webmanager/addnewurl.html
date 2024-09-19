@@ -106,7 +106,7 @@
                 </aside>
                 <div id="dropdownSide" class="hidden absolute top-0 z-40 left-0 h-screen w-3/4 md:w-1/4 bg-headline text-white ">
                         <nav class="flex flex-col md:pb-16 md:mt-14">
-                            <a href="#" class="hover:bg-slate-400  text-normal h-16 flex" >
+                            <a href="dashboard.html" class="hover:bg-slate-400  text-normal h-16 flex" >
                                 <div title="dashboard" class="flex flex-col justify-center pt-2 pb-2 w-16 h-full">
                                     <div class="flex flex-col justify-center items-center h-full">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" stroke-width="1" fill="currentColor" class="w-6 h-6  md:w-8 md:h-8 text-white ">
@@ -118,7 +118,7 @@
                                     <div class="w-full flex justify-center">DASHBOARD</div>
                                 </div>
                             </a>
-                            <a href="library.html" class="hover:bg-slate-400  text-normal h-16 flex" >
+                            <a href="#" class="hover:bg-slate-400  text-normal h-16 flex" >
                                 <div title="library" class="flex flex-col justify-center pt-2 pb-2 w-16 h-full">
                                     <div class="flex flex-col justify-center items-center h-full">
                                         <img src="./assets/images/lib.png" class="w-6 h-6  md:w-8 md:h-8">
@@ -187,7 +187,7 @@
                         </nav>
                     </div>
                 </aside>
-                <section class=" md:ml-16 w-full h-full z-0">
+                <div class=" md:ml-16 w-full h-full z-0">
                     <div class="bg-xogo h-20 mt-14 flex justify-between">
                         <div class="text-white font-light text-[25px] items-center flex gap-3 pl-4 justify-items-stretch">
                             XOGO Free Tier
@@ -198,176 +198,159 @@
                             <a href="#" class="text-[12px] text-xogo p-1">Upgrade to Pro</a>
                         </div>
                     </div>
-                    <div class="w-full h-16 items-center flex justify-between">
-                        <div class="text-xogo flex gap-3  pl-3">
-                            <a href="#">LIBRARY</a>
-                            <div class="h-5 w-5 text-sm text-white bg-gray-400 text-center items-center rounded-full">0</div>
-                        </div>
-                        <div>
-                            <div id="add" class="justify-center mx-3 mr-4 items-center flex bg-xogo w-32 h-10">
-                                <img src="./assets/images/add.png" class="h-4">
-                                <a href="#" class="font-normal text-sm text-white p-1">Add new</a>
-                            </div>
-                            <div id="dropdownAdd" class="hidden absolute md:top-48 top-[136px] right-0 mr-5 w-56 z-20 bg-white border drop-shadow-sm border-gray-200" >
-    
-                                <div href="#" class="block px-4 py-3 text-lg text-black hover:bg-gray-100">
-                                    ADD NEW
+                        <div class="flex md:flex-row flex-col">
+                            <div class="flex flex-col md:w-1/2 w-full p-4 my-3">
+                                
+                                <div id="dropZone" class="w-full h-64 bg-gray-100 my-3 border border-gray-300 flex items-center justify-center relative">
+                                    <img src="assets/images/www.png" class="">
                                 </div>
-                                <hr class="w-full h-[1px] bg-gray-200">
-                                <a href="#" class="flex justify-start font-normal px-4 py-3 items-center hover:bg-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-8 mr-3 text-xogo">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                                    </svg>
-                                    <span>Image</span>
-                                </a>
-                                <a href="#" class="flex justify-start font-normal px-4 py-3 items-center hover:bg-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-8 mr-3 text-xogo">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
-                                      </svg>
-    
-                                    <span>Video</span>
-                                </a>
-                                <a href="#" class="flex justify-start font-normal px-4 py-3 items-center hover:bg-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-8 mr-3 text-xogo">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
-                                      </svg>                                  
-                                    <span>Url</span>
-                                </a>
-                                <a href="#" class="flex justify-start font-normal px-4 py-3 items-center hover:bg-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-8 mr-3 text-xogo">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 0 0 4.5 9.75v7.5a2.25 2.25 0 0 0 2.25 2.25h7.5a2.25 2.25 0 0 0 2.25-2.25v-7.5a2.25 2.25 0 0 0-2.25-2.25h-.75m0-3-3-3m0 0-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 0 1 2.25 2.25v7.5a2.25 2.25 0 0 1-2.25 2.25h-7.5a2.25 2.25 0 0 1-2.25-2.25v-.75" />
-                                      </svg>                                  
-                                    <span>Bulk Upload</span></a>
-                                    <hr class="w-full h-[1px] bg-gray-200">
-                                <a href="#" class="flex justify-start font-normal px-4 py-3 items-center hover:bg-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-8 mr-3 text-xogo">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z" />
-                                      </svg>                                  
-                                    <span>Playlist</span>
-                                </a>
-                                    <hr class="w-full h-[1px] bg-gray-200">
-                                <a href="#" class="flex justify-start font-normal px-4 py-3 items-center hover:bg-gray-100">
-                                    <img src="./assets/images/addplayer.png" class="h-8 mr-3">
-                                    <span>Player</span>
-                                </a>
+                                
+                                                                                    
+                                <div class="flex">
+                                    <label class="inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" id="overlaycheck" class="sr-only peer" checked>
+                                        <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-xogo"></div>
+                                        <span class="ms-3 text-sm text-black">Allow Overlays</span>
+                                    </label>
+                                </div> 
+                                <div class="flex mt-14">
+                                    <label class="inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" id="overlaycheck" class="sr-only peer" >
+                                        <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-xogo"></div>
+                                        <span class="ms-3 text-sm text-black">Show advanced Options</span>
+                                    </label>
+                                </div>                            
+                            </div>
+                            <div class="flex flex-col  md:w-1/2 w-full p-4 my-3 right-0">
+                                <div class="font-bold text-gray-600">
+                                    Name
+                                </div>
+                                <div class="flex flex-row w-full my-3">
+                                    <input type="text" placeholder="Enter asset name" class="border text-sm rounded border-black w-full h-12 p-2" name="" id="name">
+                                </div>
+
+                                <div class="font-bold text-gray-600">
+                                    URL
+                                </div>
+                                <div class="flex flex-row w-full my-3 gap-3">
+                                     <select class="border rounded border-gray-200 w-32 h-12 p-2 shadow-md">
+                                        <option value="https">HTTPS</option>
+                                        <option value="http">HTTP</option>
+                                     </select>
+                                    <input type="text" placeholder="Enter asset URL Eg.: xogo.io, www.xogo.io" class="border text-sm rounded shadow-md border-gray-200 w-full h-12 p-2">
+                                </div>
+                                
+                                <div class="font-bold text-gray-600">
+                                    Asset Tags
+                                </div>
+                                <div class="shadow-md border rounded border-gray-200 w-full h-12 flex items-center px-2 my-3">
+                                    <div id="tags-container" class="flex flex-wrap items-center space-x-2"></div>
+
+                                    <!-- Add New Tag Button -->
+                                    <button id="addnew" class="bg-xogo text-white ml-2 px-3 py-1 rounded-full focus:outline-none">
+                                        + Add new tag
+                                    </button>
+
+                                    <!-- Tag Input Container (Hidden initially) -->
+                                    <div id="tag-input-container" class="flex items-center hidden rounded-full">
+                                        <input type="text" id="tag-input" class="border px-3 py-1 focus:outline-none rounded-l-full w-36"/>
+                                        <button id="confirm-tag" class=" text-xogo px-3 py-1 border rounded-r-full focus:outline-none">
+                                            &#10003;
+                                        </button>
+                                    </div>
+                                </div>                        
+
+                                <div class="font-bold text-gray-600">
+                                    Note
+                                </div>
+                                <div class="flex flex-row w-full my-3">
+                                    <textarea placeholder="Enter a note" id="note" class="shadow-md text-sm border rounded border-gray-200 w-full h-12 p-2 focus:border-xogo"></textarea>
+                                </div>                                                      
                             </div>
                         </div>
-                    </div>
-                    <div class="w-full flex sm:flex-row flex-col ">
-                        <div id="lib" class="flex md:flex-row flex-col gap-3 right-0 m-4 ">
-                            <!--assets items-->
+                        <div class="mx-3">
+                            <hr class="w-full h-0 bg-gray-200 ">
+                        </div>
+                        <div class="w-full h-48 mb-10 flex items-center justify-center gap-4">
+                            <button type="reset" class="border-2 md:w-96 w-44 h-10 border-black"> Cancel</button>
+                            <button type="submit" class="bg-xogo md:w-96 w-44 h-10 text-white"> Save</button>
                         </div>
                     </div>
-                    <hr class="w-full h-0.5 bg-gray-200"> 
-                    <div class="w-full h-16 items-center flex">
-                        <div class="text-xogo flex gap-3 pl-3 ">
-                            <a href="#">PLAYLISTS</a>
-                            <div class="h-5 w-5 text-sm text-white bg-gray-400 text-center items-center rounded-full">0</div>
-                        </div>
-                    </div>
-                    <div  class=" w-full flex flex-col">
-                        <div id="playli" class="flex md:flex-row flex-col gap-3 pl-3 right-0 mr-4 ">
-                       <!--playlists items-->
-                        </div>
-                    </div>
-                    <hr class="w-full h-0.5 bg-gray-200"> 
-                    <div class="w-full h-16 items-center flex">
-                        <div class="text-xogo flex gap-3 pl-3 ">
-                            <a href="#">PLAYERS</a>
-                            <div class="h-5 w-5 text-sm text-white bg-gray-400 text-center items-center rounded-full">0</div>
-                        </div>                        
-                    </div>
-                    <div  class=" w-full flex flex-col">
-                        <div id="layer" class="flex md:flex-row flex-col gap-3 pl-3 right-0 mr-4 ">
-                            <!--playlists items-->
-                        </div>
-                    </div>
-                    <hr class="w-full md:h-0.5 bg-gray-200">
-                </section>
+                                            
+                </div>
             </div>
-        </div>   
+        </div>
     </div>
 </body>
-<script type="module" src="./assets/scripts/dashboard.js"></script>
 <script>
-    document.addEventListener('click', function(event) {
-        // Get the menu and sidebar elements
-        const menu = document.getElementById('dropdownMenu');
-
-        // Check if the click is outside the menu or the sidebar
-        if (menu && !menu.contains(event.target) && !event.target.closest('#menu')) {
-            menu.classList.add('hidden');
-        }
-    });
-    document.addEventListener('click', function(event) {
-        // Get the menu and sidebar elements
-        const add= document.getElementById('dropdownAdd');
-
-        // Check if the click is outside the menu or the sidebar
-        if (add && !add.contains(event.target) && !event.target.closest('#add')) {
-            add.classList.add('hidden');
-        }
-    });
-    document.addEventListener('click', function(event) {
-        // Get the menu and sidebar elements
-        const side= document.getElementById('dropdownSide');
-
-        // Check if the click is outside the menu or the sidebar
-        if (side && !add.contains(event.target) && !event.target.closest('#user')) {
-            side.classList.add('hidden');
-        }
-    });
-    
-    document.getElementById('menu').addEventListener('click', function() {
-        var dropdown = document.getElementById('dropdownMenu');
-        dropdown.classList.toggle('hidden');
-    });
-    document.getElementById('add').addEventListener('click', function() {
-        var dropdown = document.getElementById('dropdownAdd');
-        dropdown.classList.toggle('hidden');
-    });
-    document.getElementById('user').addEventListener('click', function() {
-        var dropdown = document.getElementById('dropdownSide');
-        dropdown.classList.toggle('hidden');
-    });
-    
-    // Example to get user data using stored token
+        //--------------------------------------------------------------------------------------------------------------------------------------------------
+    // note
+    document.getElementById('note').value = ''; // Clear injected code
+    //--------------------------------------------------------------------------------------------------------------------------------------------------
+    ///TAGS
     document.addEventListener('DOMContentLoaded', () => {
-    // Retrieve the token from localStorage
-    const token = localStorage.getItem('token');
+    const addNewButton = document.getElementById('addnew');
+    const tagInputContainer = document.getElementById('tag-input-container');
+    const tagInput = document.getElementById('tag-input');
+    const confirmTagButton = document.getElementById('confirm-tag');
+    const tagsContainer = document.getElementById('tags-container');
+    let tags = [];
 
-    if (!token) {
-        console.error('No token found. Please log in.');
-        // Redirect to login page if needed
-        
-        return;
+    // Show the tag input field and hide the "Add new tag" button
+    addNewButton.addEventListener('click', () => {
+        addNewButton.classList.add('hidden');
+        tagInputContainer.classList.remove('hidden');
+        tagInput.focus();
+    });
+
+    // Function to create a tag element
+    function createTag(tag) {
+        const tagElement = document.createElement('span');
+        tagElement.classList.add('bg-gray-500', 'text-white', 'rounded-full', 'px-3', 'py-1', 'm-1', 'inline-flex', 'items-center');
+        tagElement.textContent = tag;
+
+        // Add a delete button for the tag
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('ml-2', 'text-white', 'cursor-pointer');
+        deleteButton.innerHTML = '&times;';
+        deleteButton.onclick = () => removeTag(tag);
+
+        tagElement.appendChild(deleteButton);
+        tagsContainer.appendChild(tagElement);
     }
 
-    // Create headers and append the token
-    const myHeaders = new Headers();
-    myHeaders.append("x-api-version", "1.0");
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("x-manager-key",`${token}`);  // Add the token here
+    // Function to add a tag
+    function addTag(tag) {
+        if (tag && !tags.includes(tag)) {
+            tags.push(tag);
+            createTag(tag);
+            tagInput.value = ''; // Clear input
+        }
+    }
 
-    // Set up request options
-    const requestOptions = {
-        method: "GET",
-        headers: myHeaders,
-        redirect: "follow"
-    };
+    // Function to remove a tag
+    function removeTag(tag) {
+        tags = tags.filter(t => t !== tag);
+        renderTags();
+    }
 
-    // Make the fetch request
-    fetch("https://api2-staging.xogo.io/v2/api/home/summary", requestOptions)
-    .then(response => response.json())
-    .then(result => {
-        console.log(result);
-        
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Authorization failed. Please log in again.');
+    // Render tags in the container
+    function renderTags() {
+        tagsContainer.innerHTML = '';
+        tags.forEach(tag => createTag(tag));
+    }
+
+    // Event listener for the confirm tag button
+    confirmTagButton.addEventListener('click', () => {
+        const tag = tagInput.value.trim();
+        if (tag) {
+            addTag(tag);
+            tagInputContainer.classList.add('hidden');
+            addNewButton.classList.remove('hidden');
+        }
     });
 
-})
+});
+
 </script>
-</html>  
+</html>
